@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Chat rooms</h1>
+
+<div id="chat_rooms">
+  <% @chat_rooms.each do |chat_room| %>
+    <a  href="<%=chat_room_path(chat_room)%>" style="display: block; border-style: solid; width:5rem; height: 5rem;">
+      <div>
+        <%=chat_room.id%>
+      </div>
+    </a>
+    <%= render 'chat_rooms/room', chat_room: chat_room %>
+  <% end %>
+
+</div>
+
+<%= link_to "New chat room", new_chat_room_path %>
+
+

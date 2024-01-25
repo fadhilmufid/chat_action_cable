@@ -1,0 +1,16 @@
+
+<div data-chat-room-id="chat-room-id"  data-value="<%=@chat_room.id%>"><%=@chat_room.id%></div>
+<p style="color: green"><%= notice %></p>
+<div id="messages-<%=@chat_room.id%>">
+  <% @chat_room.messages.each do |message| %>
+    <%= render 'messages/message', message: message %>
+  <% end %>
+</div>
+
+<%= render @chat_room %>
+
+<div>
+  <%= link_to "Edit this chat room", edit_chat_room_path(@chat_room) %> |
+  <%= link_to "Back to chat rooms", chat_rooms_path %>
+  <%= button_to "Destroy this chat room", @chat_room, method: :delete %>
+</div>
